@@ -1,0 +1,8 @@
+name: HanArenaAPI
+version: '${project.version}'
+main: online.bingulhan.extentedbukkit.HanArenaAPI
+authors: [ BingulHan ]
+commands:
+  arenaapi:
+    description: Arena ekleme ve sifirlama
+    permission: hanarenaapi.admin
