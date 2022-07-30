@@ -23,6 +23,9 @@ public class FileArenaManager implements IArenaManager{
     protected File mapsFolder;
 
     public FileArenaManager() {
+
+        boolean s=true;
+
         mapsFolder = HanArenaAPI.getInstance().getMapsFolder();
         if (!mapsFolder.exists()) {
             mapsFolder.mkdir();
