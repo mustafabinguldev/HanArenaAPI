@@ -33,7 +33,6 @@ public class CMDArena implements CommandExecutor, TabCompleter {
                                 return true;
                             }
                             Arena a = new Arena(arena, source);
-                            Arena.ARENA_LIST.add(a);
 
                             HanArenaAPI.getInstance().getArenaManager().loadArena(a);
 
