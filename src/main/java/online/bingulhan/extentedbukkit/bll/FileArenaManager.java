@@ -82,6 +82,7 @@ public class FileArenaManager implements IArenaManager{
                     arena.setActiveWorldFolder(file);
 
                     ARENA_LIST.add(key);
+                    Arena.ARENA_LIST.add(arena);
 
                     HanArenaAPI.getInstance().getLogger().info("Arena olusturuldu! ");
 
@@ -122,6 +123,8 @@ public class FileArenaManager implements IArenaManager{
                 arena.setActiveWorldFolder(file);
 
                 ARENA_LIST.add(key);
+
+                Arena.ARENA_LIST.add(arena);
 
                 HanArenaAPI.getInstance().getLogger().info("Arena olusturuldu! ");
             }, 40);
