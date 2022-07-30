@@ -20,6 +20,7 @@ public final class HanArenaAPI extends JavaPlugin {
     @Getter
     private IArenaManager arenaManager;
 
+
     @Getter
     File mapsFolder;
 
