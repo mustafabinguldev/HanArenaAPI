@@ -3,8 +3,39 @@ A perfect arena resetter and builder for your Minigames
 Developers:
 
 Owner:
-   https://github.com/BingulHan/ |
- 
-Discord: BingulHan#4912
+   https://github.com/BingulHan/ 
 
-Support Discord: discord.gg/bingulhan
+Support https://discord.gg/bingulhan
+
+How to use Custom Event
+```
+public class TestListener implements Listener {
+    //Custom events.
+    @EventHandler
+    public void event(ArenaCreateEvent e) {
+        //TODO
+    }
+}
+```
+
+How to use API 
+```
+
+//Get API plugin
+ private HanArenaAPI hanArenaAPI = (HanArenaAPI) Bukkit.getServer().getPluginManager().getPlugin("HanArenaAPI");
+ 
+ public void testAdd(String arenaName, String sourceName) { 
+        Arena arena = new Arena(arenaName, sourceName);
+        hanArenaAPI.getArenaManager().loadArena(arena);  
+ }
+ 
+  public void testRemove(String arenaName) { 
+        Arena arena = hanArenaAPI.getArenaManager().getArena(arenaName).get();
+        hanArenaAPI.getArenaManager().clear(arenaName);
+ }
+ 
+  public void testReset(String arenaName) { 
+        Arena arena = hanArenaAPI.getArenaManager().getArena(arenaName).get();
+        hanArenaAPI.getArenaManager().resetArena(arenaName);
+ }
+```

@@ -2,6 +2,8 @@ package online.bingulhan.extentedbukkit.bll;
 
 import online.bingulhan.extentedbukkit.arena.Arena;
 
+import java.util.Optional;
+
 /**
  * version: v0.1
  * @author BingulHan
@@ -31,7 +33,7 @@ public interface IArenaManager {
     boolean isArenaCreated(String arena);
 
 
-    Arena getArena(String arena);
+    Optional<Arena> getArena(String arena);
 
     void clearAll();
     void clear(Arena arena);

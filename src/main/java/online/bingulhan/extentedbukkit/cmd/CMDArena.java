@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class CMDArena implements CommandExecutor, TabCompleter {
     @Override
@@ -48,8 +49,11 @@ public class CMDArena implements CommandExecutor, TabCompleter {
                 if (args.length>1) {
                     String arena = args[1];
                     if (HanArenaAPI.getInstance().getArenaManager().isArenaCreated(arena)) {
-                        Arena ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena);
-                        HanArenaAPI.getInstance().getArenaManager().resetArena(ar);
+
+                        Optional<Arena> ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena);
+                        if (!ar.isPresent()) return false;
+
+                        HanArenaAPI.getInstance().getArenaManager().resetArena(ar.get());
 
                         sender.sendMessage(ChatColor.GREEN+"Arena reset");
                         sender.sendMessage(ChatColor.GREEN+"Arena reloaded");
@@ -66,8 +70,11 @@ public class CMDArena implements CommandExecutor, TabCompleter {
                 if (args.length>1) {
                     String arena = args[1];
                     if (HanArenaAPI.getInstance().getArenaManager().isArenaCreated(arena)) {
-                        Arena ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena);
-                        HanArenaAPI.getInstance().getArenaManager().clear(ar);
+
+                        Optional<Arena> ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena);
+                        if (!ar.isPresent()) return false;
+
+                        HanArenaAPI.getInstance().getArenaManager().clear(ar.get());
 
                         sender.sendMessage(ChatColor.GREEN+"Arena deleted!");
 
@@ -83,7 +90,7 @@ public class CMDArena implements CommandExecutor, TabCompleter {
                 if (args.length>1) {
                     String arena = args[1];
                     if (HanArenaAPI.getInstance().getArenaManager().isArenaCreated(arena)) {
-                        Arena ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena);
+                        Arena ar = HanArenaAPI.getInstance().getArenaManager().getArena(arena).get();
                         Player p = (Player)sender;
                         p.teleport(new Location(ar.getWorld(), 0, 100, 0));
 

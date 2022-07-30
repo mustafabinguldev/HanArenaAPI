@@ -9,10 +9,12 @@ import online.bingulhan.extentedbukkit.util.FileUtil;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 
+import javax.swing.text.html.Option;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;;
+import java.util.Arrays;
+import java.util.Optional;;
 
 public class FileArenaManager implements IArenaManager{
 
@@ -140,13 +142,13 @@ public class FileArenaManager implements IArenaManager{
     }
 
     @Override
-    public Arena getArena(String arena) {
+    public Optional<Arena> getArena(String arena) {
         for (Arena  a : Arena.ARENA_LIST) {
             if (a.getName().equals(arena)) {
-                return a;
+                return Optional.of(a);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
