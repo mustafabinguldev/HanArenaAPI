@@ -7,6 +7,23 @@ Owner:
 
 Support https://discord.gg/bingulhan
 
+Maven:
+```
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+   
+   <dependency>
+	    <groupId>com.github.BingulHan</groupId>
+	    <artifactId>HanArenaAPI</artifactId>
+	    <version>0.1.1</version>
+	</dependency>
+```
+
+
 How to use Custom Event
 ```
 public class TestListener implements Listener {
